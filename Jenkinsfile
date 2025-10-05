@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage (build){
             steps{
-                scripts{
+                script{
                 sh """
                     echo "hello pipeline"
                     env
