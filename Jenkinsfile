@@ -2,11 +2,22 @@ pipeline{
     agent {
         label 'agent-1'
     }
+    environment{
+        course= 'jenkins'
+    }
+    options{
+        timeout(time:10; unit: 'MINUTES')
+    }
 
     stages{
         stage (build){
             steps{
-                echo "building"
+                scripts{
+                sh """
+                    echo "hello pipeline"
+                    env
+                """
+                }
             }
         }
         stage(test){
